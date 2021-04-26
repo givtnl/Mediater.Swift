@@ -1,5 +1,5 @@
 import XCTest
-@testable import Mediater_Swift
+@testable import MediaterSwift
 
 class MyRequest : RequestProtocol {
     typealias TResponse = String
