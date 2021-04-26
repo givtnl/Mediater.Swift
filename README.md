@@ -1,3 +1,3 @@
 # Mediater.Swift
 
-A description of this package.
+This a Swift implementation of the Mediater pattern inspired by https://github.com/jbogard/MediatR
