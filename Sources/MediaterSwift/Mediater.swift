@@ -35,11 +35,8 @@ final class Mediater : MediaterProtocol {
             response = innerResponse
             semaphore.signal()
         }
-        semaphore.wait()
-        if response is ()? {
-            return () as! R.TResponse
-        }
-        if response == nil {
+        let dispatchResult = semaphore.wait(timeout: .now() + 60)
+        if dispatchResult == DispatchTimeoutResult.timedOut {
             throw MediaterError.handlerNotFound
         }
         return response
