@@ -4,9 +4,19 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "Build with Swift build",
+            "label": "Build with Swift build (configuration debug)",
             "type": "shell",
             "command": "swift build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Build with Swift build (configuration release)",
+            "type": "shell",
+            "command": "swift build -c release",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
