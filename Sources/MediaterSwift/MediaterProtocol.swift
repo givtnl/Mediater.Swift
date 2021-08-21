@@ -8,7 +8,6 @@
 import Foundation
 
 public protocol MediaterProtocol {
-    var shared: MediaterProtocol { get }
     func registerPreProcessor(processor: RequestProcessorProtocol)
     func registerHandler(handler: RequestProcessorProtocol)
     func registerPostProcessor(processor: RequestProcessorProtocol)

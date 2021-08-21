@@ -8,9 +8,9 @@
 import Foundation
 
 public class Mediater : MediaterProtocol {
-    static var shared = Mediater()
-
-    public var shared: MediaterProtocol { return Mediater.shared }
+    private static var instance = Mediater()
+    
+    public static var shared: MediaterProtocol { return Mediater.instance }
 
     var preProcessors = [Any]()
     var handlers = [Any]()
