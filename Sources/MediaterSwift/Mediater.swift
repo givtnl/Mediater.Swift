@@ -7,7 +7,7 @@
 
 import Foundation
 
-final public class Mediater : MediaterProtocol {
+public class Mediater : MediaterProtocol {
     static var shared = Mediater()
 
     public var shared: MediaterProtocol { return Mediater.shared }
