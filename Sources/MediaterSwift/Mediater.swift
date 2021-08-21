@@ -7,28 +7,28 @@
 
 import Foundation
 
-final class Mediater : MediaterProtocol {
+final public class Mediater : MediaterProtocol {
     static var shared = Mediater()
 
-    var shared: MediaterProtocol { return Mediater.shared }
+    public var shared: MediaterProtocol { return Mediater.shared }
 
     var preProcessors = [Any]()
     var handlers = [Any]()
     var postProcessors = [Any]()
 
-    func registerPreProcessor(processor: RequestProcessorProtocol) {
+    public func registerPreProcessor(processor: RequestProcessorProtocol) {
         preProcessors.append(processor)
     }
 
-    func registerPostProcessor(processor: RequestProcessorProtocol) {
+    public func registerPostProcessor(processor: RequestProcessorProtocol) {
         postProcessors.append(processor)
     }
 
-    func registerHandler(handler: RequestProcessorProtocol) {
+    public func registerHandler(handler: RequestProcessorProtocol) {
         handlers.append(handler)
     }
 
-    func send<R>(request: R) throws -> (R.TResponse) where R : RequestProtocol {
+    public func send<R>(request: R) throws -> (R.TResponse) where R : RequestProtocol {
         var response: R.TResponse!
         let semaphore = DispatchSemaphore.init(value: 0)
         try sendAsync(request: request) { innerResponse in
@@ -42,7 +42,7 @@ final class Mediater : MediaterProtocol {
         return response
     }
 
-    func sendAsync<R>(request: R, completion: @escaping (R.TResponse) -> Void) throws where R : RequestProtocol {
+    public func sendAsync<R>(request: R, completion: @escaping (R.TResponse) -> Void) throws where R : RequestProtocol {
         let handler = self.handlers.first { handler in
             if let handler = handler as? RequestHandlerProtocol {
                 return handler.canHandle(request: request)
