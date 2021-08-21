@@ -64,7 +64,7 @@ final class Mediater_SwiftTests: XCTestCase {
         mediater.registerHandler(handler: requestHandler)
         mediater.registerPreProcessor(processor: requestPreProcessor)
         mediater.registerPostProcessor(processor: requestPostProcessor)
-        try? mediater.send(request: request) { result in
+        try? mediater.sendAsync(request: request) { result in
             NSLog(result)
             XCTAssert(result == "PreHandler 1 evaluated and postHandled")
         }
