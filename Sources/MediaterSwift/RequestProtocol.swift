@@ -13,4 +13,5 @@ public protocol RequestProtocol {
 
 open class NoResponseRequest: RequestProtocol {
     public typealias TResponse = Void
+    public init() { }
 }
